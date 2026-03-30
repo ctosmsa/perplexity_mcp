@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "perplexity_mcp/http_server.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "perplexity_mcp/http_server.py"
+    }
+  ]
+}

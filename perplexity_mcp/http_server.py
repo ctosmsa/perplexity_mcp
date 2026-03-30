@@ -22,8 +22,7 @@ from .logger import logger
 def build_app() -> FastAPI:
     api_key = os.environ.get("PERPLEXITY_API_KEY")
     if not api_key:
-        logger.error("PERPLEXITY_API_KEY environment variable is required")
-        sys.exit(1)
+        logger.error("PERPLEXITY_API_KEY environment variable is missing. Requests will fail until set.")
 
     port = int(os.environ.get("PORT", "8080"))
     bind_address = os.environ.get("BIND_ADDRESS", "0.0.0.0")
@@ -69,11 +68,12 @@ def build_app() -> FastAPI:
     return app
 
 
+app = build_app()
+
 def main() -> None:
     port = int(os.environ.get("PORT", "8080"))
     bind_address = os.environ.get("BIND_ADDRESS", "0.0.0.0")
 
-    app = build_app()
     logger.info(f"Perplexity MCP Server listening on http://{bind_address}:{port}/mcp")
 
     uvicorn.run(app, host=bind_address, port=port)
