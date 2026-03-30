@@ -35,11 +35,11 @@ def build_app() -> FastAPI:
     # CORS — mirror the TS behaviour: allow all origins if "*" is present
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=allowed_origins,
+        allow_origins=["*"],
         allow_credentials=True,
         allow_methods=["*"],
-        allow_headers=["Content-Type", "mcp-session-id"],
-        expose_headers=["Mcp-Session-Id", "mcp-protocol-version"],
+        allow_headers=["*"],
+        expose_headers=["*"],
     )
 
     mcp_server = create_perplexity_server()
