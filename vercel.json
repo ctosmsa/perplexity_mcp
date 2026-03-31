@@ -9,7 +9,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "perplexity_mcp/http_server.py"
+      "destination": "/api/index"
     }
   ]
 }
