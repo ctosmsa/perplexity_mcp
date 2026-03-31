@@ -6,14 +6,10 @@
       "use": "@vercel/python"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/mcp",
-      "dest": "perplexity_mcp/http_server.py"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "perplexity_mcp/http_server.py"
+      "source": "/(.*)",
+      "destination": "perplexity_mcp/http_server.py"
     }
   ]
 }
