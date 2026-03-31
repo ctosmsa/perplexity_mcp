@@ -15,8 +15,8 @@ from fastapi.responses import JSONResponse
 from mcp.server.sse import SseServerTransport
 import uvicorn
 
-from .server import create_perplexity_server
-from .logger import logger
+from perplexity_mcp.server import create_perplexity_server
+from perplexity_mcp.logger import logger
 
 
 def build_app() -> FastAPI:
